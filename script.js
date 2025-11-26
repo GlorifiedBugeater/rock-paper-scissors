@@ -31,55 +31,49 @@ function getHumanChoice () {
 
 
 
-function playGame() {
-    let humanScore = 0
-    let computerScore = 0
-    console.log("Welcome to Rock, Paper, Scissors. We will be playing 5 rounds. Let's start the game!")
+// function playGame() {
+//     let humanScore = 0
+//     let computerScore = 0
+//     console.log("Welcome to Rock, Paper, Scissors. We will be playing 5 rounds. Let's start the game!")
     
-    for (let i=0; i < 5; i++) {
-        playRound()
-        console.log("current score: Machine",computerScore,"Human:",humanScore)
-    }
-    console.log("End of game, the Machine won", computerScore, "rounds, and you won ", humanScore, "rounds")
-    if (humanScore > computerScore) {
-        return console.log ("You won!")
-    }
-    else if (humanScore < computerScore) {
-        return console.log ("You lost!")
-    }
-    else {
-        return console.log ("Wow, it was a draw!")
-    }
+//     for (let i=0; i < 5; i++) {
+//         playRound()
+//         console.log("current score: Machine",computerScore,"Human:",humanScore)
+//     }
+//     console.log("End of game, the Machine won", computerScore, "rounds, and you won ", humanScore, "rounds")
+//     if (humanScore > computerScore) {
+//         return console.log ("You won!")
+//     }
+//     else if (humanScore < computerScore) {
+//         return console.log ("You lost!")
+//     }
+//     else {
+//         return console.log ("Wow, it was a draw!")
+//     }
 
-function playRound () {
-    human = getHumanChoice()
+function playRound (human) {
+    
     computer = getComputerChoice()
     console.log ("The machine has choosen",computer)
     console.log("You choose", capitalize(human))
     
 
     if (computer === "Rock" && human === "Scissors") {
-        computerScore +=1
         return console.log("Rock beats scissors, you lost!")
     }
     else if (human === "Rock" && computer === "Scissors") {
-        humanScore +=1
         return console.log("Rock beats scissors, you won!")
     }
     else if (human === "Paper" && computer === "Scissors") {
-        computerScore +=1
         return console.log("Scissors beats paper, you lost!")
     }
     else if (computer === "Paper" && human === "Scissors") {
-        humanScore +=1
         return console.log("Scissors beats paper, you won!")
     }
     else if (computer === "Paper" && human === "Rock") {
-        computerScore +=1
         return console.log("Paper beats rock, you lost!")
     }
-    else if (human === "Paper" && computer === "Rock") {
-        humanScore +=1
+    else if (human === "Paper" && computer === "Rock") {       
         return console.log("Paper beats rock, you won!")
     }
     else if (human === computer) {
@@ -87,6 +81,62 @@ function playRound () {
     }
 }
 
-}
-playGame()
 
+
+let rockBtn = document.querySelector("#rock")
+function handleRockClick () {
+    playRound("Rock")
+}
+rockBtn.addEventListener('click',handleRockClick)
+
+
+let paperBtn = document.querySelector("#paper")
+function handlePaperClick () {
+    playRound("Paper")
+}
+paperBtn.addEventListener('click',handlePaperClick)
+
+
+let scissorsBtn = document.querySelector("#scissors")
+function handleScissorsClick () {
+    playRound("Scissors")
+}
+scissorsBtn.addEventListener('click',handleScissorsClick)
+
+
+
+// function playRound (human) {
+    
+//     computer = getComputerChoice()
+//     console.log ("The machine has choosen",computer)
+//     console.log("You choose", capitalize(human))
+    
+
+//     if (computer === "Rock" && human === "Scissors") {
+//         computerScore +=1
+//         return console.log("Rock beats scissors, you lost!")
+//     }
+//     else if (human === "Rock" && computer === "Scissors") {
+//         humanScore +=1
+//         return console.log("Rock beats scissors, you won!")
+//     }
+//     else if (human === "Paper" && computer === "Scissors") {
+//         computerScore +=1
+//         return console.log("Scissors beats paper, you lost!")
+//     }
+//     else if (computer === "Paper" && human === "Scissors") {
+//         humanScore +=1
+//         return console.log("Scissors beats paper, you won!")
+//     }
+//     else if (computer === "Paper" && human === "Rock") {
+//         computerScore +=1
+//         return console.log("Paper beats rock, you lost!")
+//     }
+//     else if (human === "Paper" && computer === "Rock") {
+//         humanScore +=1
+//         return console.log("Paper beats rock, you won!")
+//     }
+//     else if (human === computer) {
+//         return console.log("We have a draw")
+//     }
+// }
