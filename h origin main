@@ -1,0 +1,32 @@
+[33mcommit ccd16b2eab3c7979c8ffb37fa7e0f8cb1c4ce07a[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;32mrps-ui[m[33m)[m
+Author: Vitor <vitor41197@gmail.com>
+Date:   Mon Dec 1 11:13:12 2025 -0300
+
+    Finished UI and game logic
+
+[33mcommit df9fd4f531a4fedb31a14a60f2dcd3a4d1dd1980[m[33m ([m[1;31morigin/rps-ui[m[33m)[m
+Author: Vitor <vitor41197@gmail.com>
+Date:   Wed Nov 26 20:28:46 2025 -0300
+
+    Initial reaftor fort UI update
+    
+    - Created buttons for pplayer logic
+    - Refactored logic for playround function
+
+[33mcommit 97cff68ce8c1af5b2f897d5f2ccf9e8df3eb0fe7[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: Vitor <vitor41197@gmail.com>
+Date:   Mon Nov 10 21:47:08 2025 -0300
+
+    added simple instructions
+
+[33mcommit 53ac100e553cf1cfe01d274d14a7607dc5c76b75[m
+Author: Vitor <vitor41197@gmail.com>
+Date:   Mon Nov 10 21:44:22 2025 -0300
+
+    Created game, works in console, plays 5 rounds
+
+[33mcommit b1542884fb8f789dc1317a6fc289c798e82d26fc[m
+Author: GlorifiedBugeater <143010774+GlorifiedBugeater@users.noreply.github.com>
+Date:   Mon Nov 10 19:27:53 2025 -0300
+
+    Initial commit
