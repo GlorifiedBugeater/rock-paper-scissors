@@ -1,4 +1,5 @@
-console.log("Hi there!")
+let humanScore = 0
+let computerScore = 0
 
 function getComputerChoice (){
     let choiceNum = Math.random()
@@ -21,60 +22,100 @@ function capitalize (string) {
 }
 
 
-function getHumanChoice () {
-      choice = prompt("Please enter your choice: Rock, paper, scissors")
-    
-     return capitalize(choice)
+function computerVictory () {
+    const gameLog = document.querySelector("#gameLog")
+    const content = document.createElement("div")
+    content.classList.add("gameLog")
+    content.textContent = "The machine has reached 5 points, thus winning, you lost!"
+    gameLog.appendChild(content)
+}
+
+function humanVictory () {
+    const gameLog = document.querySelector("#gameLog")
+    const content = document.createElement("div")
+    content.classList.add("gameLog")
+    content.textContent = "You have reached 5 points, thus winning, the Machine has lost, CONGRATULATIONS!"
+    gameLog.appendChild(content)
+}
+
+function humanWin () {
+    const divScore = document.querySelector("#score")
+    humanScore +=1
+
+    const content = document.createElement('div')
+    content.classList.add("divScore")
+    const returnText  = "Human: "+humanScore+" Computer: "+computerScore
+    content.textContent=returnText
+    divScore.appendChild(content)
+
+    const gameLog = document.querySelector("#gameLog")
+    const content1 = document.createElement("div")
+    content.classList.add("gameLog")
+    const returntext = "you won!"
+    content1.textContent = returntext
+    gameLog.appendChild(content1)
+    console.log("human Score",humanScore,"computer Score",computerScore)
+    if (humanScore === 5)
+        return humanVictory()
+    return
+}
+
+function computerWin () {
+    const divScore = document.querySelector("#score")
+    computerScore +=1
+
+    const content = document.createElement('div')
+    content.classList.add("divScore")
+    const returnText  = "Human: "+humanScore+" Computer: "+computerScore
+    content.textContent=returnText
+    divScore.appendChild(content)
+
+    const gameLog = document.querySelector("#gameLog")
+    const content1 = document.createElement("div")
+    content.classList.add("gameLog")
+    const returntext = "you lost!"
+    content1.textContent = returntext
+    gameLog.appendChild(content1)
+    console.log("human Score",humanScore,"computer Score",computerScore)
+    if (computerScore === 5)
+        return computerVictory()
+    return
 }
 
 
-
-
-
-// function playGame() {
-//     let humanScore = 0
-//     let computerScore = 0
-//     console.log("Welcome to Rock, Paper, Scissors. We will be playing 5 rounds. Let's start the game!")
-    
-//     for (let i=0; i < 5; i++) {
-//         playRound()
-//         console.log("current score: Machine",computerScore,"Human:",humanScore)
-//     }
-//     console.log("End of game, the Machine won", computerScore, "rounds, and you won ", humanScore, "rounds")
-//     if (humanScore > computerScore) {
-//         return console.log ("You won!")
-//     }
-//     else if (humanScore < computerScore) {
-//         return console.log ("You lost!")
-//     }
-//     else {
-//         return console.log ("Wow, it was a draw!")
-//     }
-
-function playRound (human) {
-    
+function playRound (humanChoice) {
+    human = capitalize(humanChoice)
     computer = getComputerChoice()
-    console.log ("The machine has choosen",computer)
-    console.log("You choose", capitalize(human))
+    const gameLog = document.querySelector("#gameLog")
+    const content = document.createElement("div")
+    content.classList.add("gameLog")
+    const returntext = "The machine has choosen "+computer
+    content.textContent = returntext
+    gameLog.appendChild(content)
+    console.log('human choice',human,'computer choice',computer)
     
 
     if (computer === "Rock" && human === "Scissors") {
-        return console.log("Rock beats scissors, you lost!")
+        return computerWin()
+        
     }
     else if (human === "Rock" && computer === "Scissors") {
-        return console.log("Rock beats scissors, you won!")
+        return humanWin()
+        
     }
     else if (human === "Paper" && computer === "Scissors") {
-        return console.log("Scissors beats paper, you lost!")
+        return computerWin()
+        
     }
     else if (computer === "Paper" && human === "Scissors") {
-        return console.log("Scissors beats paper, you won!")
+        return computerWin()
     }
     else if (computer === "Paper" && human === "Rock") {
-        return console.log("Paper beats rock, you lost!")
+        return computerWin()
+        
     }
-    else if (human === "Paper" && computer === "Rock") {       
-        return console.log("Paper beats rock, you won!")
+    else if (human === "Paper" && computer === "Rock") {  
+        return humanWin()
     }
     else if (human === computer) {
         return console.log("We have a draw")
@@ -140,3 +181,33 @@ scissorsBtn.addEventListener('click',handleScissorsClick)
 //         return console.log("We have a draw")
 //     }
 // }
+
+// function getHumanChoice () {
+//       choice = prompt("Please enter your choice: Rock, paper, scissors")
+    
+//      return capitalize(choice)
+// }
+
+
+
+
+
+// function playGame() {
+//     let humanScore = 0
+//     let computerScore = 0
+//     console.log("Welcome to Rock, Paper, Scissors. We will be playing 5 rounds. Let's start the game!")
+    
+//     for (let i=0; i < 5; i++) {
+//         playRound()
+//         console.log("current score: Machine",computerScore,"Human:",humanScore)
+//     }
+//     console.log("End of game, the Machine won", computerScore, "rounds, and you won ", humanScore, "rounds")
+//     if (humanScore > computerScore) {
+//         return console.log ("You won!")
+//     }
+//     else if (humanScore < computerScore) {
+//         return console.log ("You lost!")
+//     }
+//     else {
+//         return console.log ("Wow, it was a draw!")
+//     }
